@@ -1,16 +1,16 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-@import url(../fonts/fonts.css);
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   background: var(--background-color);
   font-family:  'IBM Plex mono', serif;
-}
-.header {
-
   background-image: var(--background-image);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  /* fixed не дает прокручивать фоновую картинку */
+  background-attachment: fixed;
+}
+.header {
   padding: 66px var(--offset-small);
 }
 .decorated-zone {
@@ -83,9 +83,24 @@
   cursor: pointer;
   font-size: var(--text-size);
 }
-.header__theme-menu-button:hover {
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button_active {
   outline: 1px solid var(--accent-color);
 }
+.header__theme-menu-button:focus-visible {
+      text-decoration: underline;
+    }
+.header__theme-menu-button:hover {
+  outline: 1px solid rgba(255, 0, 112, 0.40);
+}
+
+
+
+
+
 
 .header__theme-title {
   color:var(--big-text-color);
@@ -97,18 +112,24 @@
   line-height: 82.5%;
 }
 .header__theme-text {
-  color: var(--text-color);
-  background-color: var(--accent-color);
   font-size: var(--text-size);
   font-style: normal;
   font-weight: 700;
   line-height: 23.4px; /* 130% */
   margin-block-start: 55px;
-  }
+}
+.title-decor {
+  color: var(--text-color);
+  background-color: var(--accent-color);
+}
   /*===========================================================*/
-.concentration, .advices, .gallery {
+  .difficulties {
+    margin-top: 40px;
+    padding: 0 var(--offset-small);
+  }
+ .concentration, .advices, .gallery {
   padding: 0 var(--offset-small);
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .grid_type_text {
   display: grid;
@@ -118,57 +139,57 @@
   display: grid;
   grid-template-columns: 1fr;
 }
-  .content__text__h2 {
-  color: var(--accent-color);
-  font-family: "IBM Plex Mono", serif;
-  font-size: 18px;
+.content__text__h2 {
+color: var(--accent-color);
+font-family: "IBM Plex Mono", serif;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: 23.4px;
+margin-bottom: var(--offset-big);
+
+}
+.content__text__h3{
+  font-size: var(--text-size);
   font-style: normal;
   font-weight: 700;
+  line-height: 23.4px; 
+  margin-bottom: var(--offset-small);
+}
+.content__text__h4{
+  color: var(--text-color);
+  background-color: var(--accent-color);
+  font-family: "IBM Plex Mono",serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23.4px; 
+  /* в блочной модели из соприкасающихся вертикальных марджинов отыграет бОльший,
+  т.о., добавляя н4, мы сдалаем отступ между н3 и н4 = 20пкс, а не 30. А когда уберем р4, отступ останется только от н3 = 10пкс */
+  margin: var(--offset-big) 0 var(--offset-small);
+}
+.content__text__p{
+  color: var(--content-text-color);
+  font-family: "IBM Plex Mono",serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
   line-height: 23.4px;
   margin-bottom: var(--offset-big);
+}
+.text__link {
+  color: var(--content-text-color);
+  filter: drop-shadow(0px 2px 2px  var(--accent-color));
+  text-decoration: none;
+}
+.text__link:focus {
+  outline: none;
+}
 
-  }
-  .content__text__h3{
-    color: var(--text-color);
-    background-color: var(--accent-color);
-    font-size: var(--text-size);
-    font-style: normal;
-    font-weight: 700;
-    line-height: 23.4px; 
-    margin-bottom: var(--offset-small);
-  }
-  .content__text__h4{
-    color: var(--text-color);
-    background-color: var(--accent-color);
-    font-family: "IBM Plex Mono",serif;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 23.4px; 
-    /* в блочной модели из соприкасающихся вертикальных марджинов отыграет бОльший,
-    т.о., добавляя н4, мы сдалаем отступ между н3 и н4 = 20пкс, а не 30. А когда уберем р4, отступ останется только от н3 = 10пкс */
-    margin: var(--offset-big) 0 var(--offset-small);
-  }
-  .content__text__p{
-    color: var(--content-text-color);
-    font-family: "IBM Plex Mono",serif;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 23.4px;
-    margin-bottom: var(--offset-big);
-  }
-  .text__link {
-    color: var(--content-text-color);
-    filter: drop-shadow(0px 0px 2px  var(--accent-color));
-    text-decoration: none;
-  }
-  .text__link:hover {
-    text-decoration: underline;
-  }
-  .text__link:focus-visible {
-    outline: 1px solid var(--content-text-color)
-  }
+.text__link:hover {
+  text-decoration: underline;
+}
+
 /*========================================gallery=========================*/
 .gallery {
 
@@ -176,7 +197,7 @@
 .grid_type_gallery {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--offset-small);
+  gap: 5px;
 }
 .item {
 
@@ -188,25 +209,22 @@
   object-position: center;
 }
 
-
 .footer__text-title{
   color:var(--big-text-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  text-shadow: 4px 4px 0px var(--accent-color);
+  text-shadow: 2px 2px 0px var(--accent-color);
   font-style: normal;
   font-weight: 700;
   line-height: 82.5%;
 }
 .footer {
   display: flex;
-  width: 375px;
-  height: 667px;
+  /*  100vh - 'то динамическая высота, соответству.щая высоте екрана ,раузера*/
+  min-height: 100vh;
+  margin-top: 41px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
   padding: 66px var(--offset-small);
 }
 /*=================ADAPTIVE==========================*/
@@ -215,7 +233,7 @@
 Когда идем от десктоп-фёст, тогда размер экрана определяется свойством mах-width */
 @media screen and (min-width: 768px) {
   .header, .footer {
-    padding: 173px var(--offset-big) 185px 0;
+    padding: 173px var(--offset-big) 185px;
   }
   .decorated-zone::before {
     top:var(--offset-big);
@@ -242,12 +260,11 @@
     grid-template-columns: 0.3fr 0.7fr;
     gap: var(--offset-big);
   }
-  .concentration, .advices, .gallery {
+  .difficulties, .concentration, .advices, .gallery {
     padding: 0 var(--offset-big);
     margin-top: 60px;
   }
   .grid_type_gallery {
-    grid-template-rows: 192px 230px 318px;
     grid-template-columns: repeat(3,1fr);
     gap: var(--offset-big);
     margin-top: var(--offset-big);
@@ -275,14 +292,12 @@
   }
   .footer {
     padding: 173px var(--offset-big) 185px 0;
-    width: 768px;
-    height: 1024px;
 }
 
 }
 @media screen and (min-width: 1024px) {
   .header, .footer {
-    padding: 0 var(--offset-big) 134px 0;
+    padding: 0 var(--offset-big) 134px;
   }
   .header__theme-menu {
     margin-top: var(--offset-big);
@@ -298,17 +313,10 @@
     margin-top: 273px;
   }
   .grid_type_text_middle {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--offset-big);
   }
-  .grid_type_gallery {
-    grid-template-rows: 260px 316px 458px;
-
-  }
   .footer {
     padding: 173px var(--offset-big) 185px 0;
-    width: 1024px;
-    height: 768px;
   }
 }

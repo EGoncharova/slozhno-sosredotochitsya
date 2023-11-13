@@ -8,4 +8,9 @@
   /* переменные для бокового отступа всего контента для маленького и для большого экранов */
   --offset-small: 10px;
   --offset-big: 20px;
+  --accent-color: #FF0070;
+  --big-text-color: #DB00FF;
+  --background-color:  #000028;
+  --text-color: #000028;
+  --content-text-color: #F1B2CE;
 }
