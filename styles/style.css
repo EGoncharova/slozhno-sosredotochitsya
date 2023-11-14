@@ -153,6 +153,7 @@ line-height: 23.4px;
 margin-bottom: var(--offset-big);
 
 }
+
 .content__text__h3 {
   font-size: var(--text-size);
   font-style: normal;
@@ -160,6 +161,7 @@ margin-bottom: var(--offset-big);
   line-height: 23.4px; 
   margin-bottom: var(--offset-small);
 }
+
 .content__text__h4 {
   color: var(--text-color);
   background-color: var(--accent-color);
