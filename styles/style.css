@@ -158,8 +158,8 @@ margin-bottom: var(--offset-big);
   font-size: var(--text-size);
   font-style: normal;
   font-weight: 700;
-  line-height: 23.4px; 
   margin-bottom: var(--offset-small);
+  line-height: 23.4px; 
 }
 
 .content__text__h4 {
