@@ -10,6 +10,8 @@
     чем стили в медиазапросе предпочтений пользователя
   */
   --accent-color: #FF0070;
+  --decor-color: #FF0070;
+  --decor-hover-color: rgba(255, 0, 112, 0.4);
   --big-text-color: #DB00FF;
   --background-color:  #000028;
   --text-color: #000028;

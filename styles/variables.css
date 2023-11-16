@@ -4,7 +4,7 @@
 */
 :root {
   --text-size: 18px;
-  --background-image: url('../images/cover-image.png');
+  --background-image: url('../images/cover-image-dark.png');
   /* переменные для бокового отступа всего контента для маленького и для большого экранов */
   --offset-small: 10px;
   --offset-big: 20px;
